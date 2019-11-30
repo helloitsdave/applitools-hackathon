@@ -1,0 +1,23 @@
+{
+  "name": "cypress-hack",
+  "version": "1.0.0",
+  "description": "Applitools Hack",
+  "main": "index.js",
+  "scripts": {
+    "applitools:key": "export APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110",
+    "applitools:key-windows": "set APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110",
+    "cy:run": "cypress run",
+    "test": "npm run cy:run -- npm run applitools:key",
+    "cypress:open": "cypress open",
+    "test-traditional": "cypress run --spec 'TraditionalTests.js'",
+    "test-visual": "cypress run --spec 'VisualAITests.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@applitools/eyes-cypress": "^3.8.21",
+    "cypress": "^3.7.0",
+    "eslint-plugin-cypress": "^2.7.0"
+  }
+}
