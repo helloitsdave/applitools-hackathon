@@ -7,10 +7,11 @@
     "applitools:key": "export APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110",
     "applitools:key-windows": "set APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110",
     "cy:run": "cypress run",
-    "test": "npm run cy:run -- npm run applitools:key",
+    "test": "npm run applitools:key && npm run cy:run",
     "cypress:open": "cypress open",
     "test-traditional": "cypress run --spec ./cypress/integration/TraditionalTests.js",
-    "test-visual": "cypress run --spec ./cypress/integration/VisualAITests.js"
+    "test-visual": "export APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110 && cypress run --spec ./cypress/integration/VisualAITests.js",
+    "test-visual-windows": "set APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110 && cypress run --spec ./cypress/integration/VisualAITests.js"
   },
   "author": "",
   "license": "ISC",

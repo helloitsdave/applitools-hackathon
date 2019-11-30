@@ -1,3 +1,6 @@
 {
-    "baseUrl":"https://demo.applitools.com"
+    "baseUrl":"https://demo.applitools.com",
+    "env": {
+        "APPLITOOLS_API_KEY":"97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110"
+    }
 }
