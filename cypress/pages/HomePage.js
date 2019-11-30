@@ -6,26 +6,30 @@ class HomePage {
     get expensesChart() { return { locator: 'canvas#canvas', label: 'Expenses Chart' } }
     get addDataSetLink() { return { locator: '#addDataset', label: 'Add Data Set Link' } }
 
-    
+    /**
+     * Current Column Count
+     * Setting here so the logic can be updated easily if the number
+     * of columns change.
+     */
     getColumnCount() {
         return 5
     }
 
-    sortByAmount() {
-        cy.get(this.amountHeader.locator).click()
-    }
-    
     clickExpensesChart() {
         cy.get(this.expensesChartLink.locator).click()
-        cy.wait(3000) // Nothing to key off for table change. Would investigate further
+        cy.wait(3000) // Nothing in the dom to key off for table change. Would investigate further
         cy.get(this.expensesChart.locator).should('be.visible')
     }
 
     clickShowDataForNextYear() {
         cy.get(this.addDataSetLink.locator).click()
-        cy.wait(3000) // Nothing to key off for table change. Would investigate further
+        cy.wait(3000) // Nothing in the dom to key off for table change. Would investigate further
         cy.get(this.expensesChart.locator).should('be.visible')
     }
+
+    sortByAmount() {
+      cy.get(this.amountHeader.locator).click()
+  }
 
     saveTableToObject(inputArray) {
         console.log(inputArray)
