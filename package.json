@@ -9,8 +9,8 @@
     "cy:run": "cypress run",
     "test": "npm run cy:run -- npm run applitools:key",
     "cypress:open": "cypress open",
-    "test-traditional": "cypress run --spec 'TraditionalTests.js'",
-    "test-visual": "cypress run --spec 'VisualAITests.js'"
+    "test-traditional": "cypress run --spec ./cypress/integration/TraditionalTests.js",
+    "test-visual": "cypress run --spec ./cypress/integration/VisualAITests.js"
   },
   "author": "",
   "license": "ISC",

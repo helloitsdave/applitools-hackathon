@@ -134,8 +134,8 @@ describe(`Test 2. Data Driven Login`, () => {
     it(`should add 2019 to the expenses chart`, () => {
         HomePage.clickShowDataForNextYear()
       /* Unable to access the dom of the canvas element. */
-   })
-
+    })
+  })
   describe('Test 5. Dynamic Content Test', () => {
     before(() => {
       LoginPage.visitDynamic()
@@ -145,4 +145,3 @@ describe(`Test 2. Data Driven Login`, () => {
         cy.get('div[id^="flashSale"] img').its('length').should('eq', 2)
       })
    })
-})
