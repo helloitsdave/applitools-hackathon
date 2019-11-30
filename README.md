@@ -5,7 +5,7 @@ https://www.cypress.io <br>
 
 ## Prerequisites
 - For cypress.io requirements see https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements
-- Clone repo and cd into the applitools-hackaton folder
+- Clone repo and cd into the applitools-hackathon folder
 - Run: `npm install`
 
 ## Running Tests via the UI
