@@ -1,5 +1,6 @@
 import LoginPage from '../pages/LoginPage'
 import HomePage from '../pages/HomePage'
+import * as Table from '../pages/TransactionTable'
 
 before(() => {
   LoginPage.visit()
@@ -83,6 +84,11 @@ describe(`Test 2. Data Driven Login`, () => {
 
   describe('Test 3. Table Sort', () => {
 
+    /**
+     * I would plan to refactor this to remove it from the test case
+     * Leaving in here  for now to give visibility into what is happening. 
+     */
+
     let initialColumnTextArray = []
     let updatedColumnTextArray = []
     let expectedAmountOrderArray = []
@@ -96,27 +102,28 @@ describe(`Test 2. Data Driven Login`, () => {
       LoginPage.login()
     })
     it(`should get the initial table row text for each cell as an array`, async () => {
-      initialColumnTextArray = await HomePage.getTableAsTextArray()
+      initialColumnTextArray = await Table.getTableAsTextArray()
       })
     it(`should get an array containing each of the intial amounts`, async () => {
-        initialAmountArray = await HomePage.getAmountValueArray(initialColumnTextArray)
+        initialAmountArray = await Table.getAmountValueArray(initialColumnTextArray)
         expectedAmountOrderArray = initialAmountArray.sort(function(a, b){
           return a - b})
-        console.log(expectedAmountOrderArray)
         })
     it(`should save the table row cells as an object for comparison`, async () => {
-      initialTableObject = await HomePage.saveTableToObject(initialColumnTextArray)
+      initialTableObject = await Table.saveTableToObject(initialColumnTextArray)
       })
-    it(`should click on the amount column header`, async () => {
+    it(`should click on the amount column header`, () => {
         HomePage.sortByAmount()
-        updatedColumnTextArray = await HomePage.getTableAsTextArray()
+      })
+    it(`should get the updated table headers as an array`, async () => {
+        updatedColumnTextArray = await Table.getTableAsTextArray()
       })
     it(`should be sorted by amount in ascending order`, async () => {
-        actualAmountOrderArray = await HomePage.getAmountValueArray(updatedColumnTextArray)
+        actualAmountOrderArray = await Table.getAmountValueArray(updatedColumnTextArray)
         expect(actualAmountOrderArray).to.deep.equal(expectedAmountOrderArray)
         })   
     it(`should keep each row’s data intact after the sorting`, async () => {
-        sortedTableObject = await HomePage.saveTableToObject(updatedColumnTextArray)
+        sortedTableObject = await Table.saveTableToObject(updatedColumnTextArray)
         expect(initialTableObject).to.deep.equal(sortedTableObject)
         })  
   })
