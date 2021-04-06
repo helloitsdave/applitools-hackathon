@@ -31,49 +31,6 @@ class HomePage {
       cy.get(this.amountHeader.locator).click()
   }
 
-    saveTableToObject(inputArray) {
-        console.log(inputArray)
-        const numberOfRows = inputArray.length / this.getColumnCount()
-        console.log('Number of Rows: ' + numberOfRows)
-        let columnTextObject = {}
-        // Map Each Row in the table 
-        for (let count = 0; count < numberOfRows; count += 1) {
-           const rowArray = inputArray.splice(0, this.getColumnCount())
-           columnTextObject = {...columnTextObject, [rowArray[3]]: rowArray }
-        }
-        return columnTextObject
-      }
-    
-    /**
-     * Store Each of the Table Element Text in an Array
-     */
-    getTableAsTextArray() {
-        let columnTextArray = []
-        cy.get(this.transactionTable)
-          .each(element => { 
-            if(element.text()){
-              columnTextArray.push(element.text())
-          }
-        })
-        return columnTextArray
-      }
-    
-      /**
-       * Get an Array of the Value Amounts
-       * Parses out the non float characters so it can be sorted
-       * @param {} inputArray 
-       */
-     getAmountValueArray(inputArray) {
-        let amountValueArray = []
-        for (let amountCount = 4; amountCount < inputArray.length; amountCount += this.getColumnCount() ){
-          let currentAmount = inputArray[amountCount].replace(/[^0-9$.-]/g, '')
-          let parsedFloat = parseFloat(currentAmount)
-          amountValueArray.push(parsedFloat)
-        }
-        console.log('PRE-SORT ' + amountValueArray)
-        return amountValueArray
-      }
-
 }
 
 export default new HomePage

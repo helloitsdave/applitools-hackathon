@@ -13,7 +13,7 @@
     "test-visual": "export APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110 && cypress run --spec ./cypress/integration/VisualAITests.js",
     "test-visual-windows": "set APPLITOOLS_API_KEY=97Y2FUU4JxxOmGEFCUEjCbawZjE108nRbOHM0PoJcb0haE110 && cypress run --spec ./cypress/integration/VisualAITests.js"
   },
-  "author": "",
+  "author": "david.gordon@skillsoft.com",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
