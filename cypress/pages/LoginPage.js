@@ -67,6 +67,10 @@ class LoginPage {
         this.clickSubmit()
     }
 
+    /**
+     * Random update check
+     */
+
 }
 
 export default new LoginPage
